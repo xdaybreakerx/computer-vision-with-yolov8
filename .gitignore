@@ -1,4 +1,4 @@
 .venv
 /models/yolov8*.pt
-/video/source.mp4
+/video/source*.mp4
 Object-Recognition.v2i.yolov8
