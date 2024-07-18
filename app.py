@@ -5,7 +5,6 @@ from tqdm import tqdm
 import cv2
 
 # YOLO V8 models in order from small/quick/less good - large/slow/more good 
-
 # yolov8n - nano
 # yolov8s - small
 # yolov8m - medium
@@ -14,14 +13,25 @@ import cv2
 
 # models will download on first use if not already installed locally
 
-model = YOLO("./models/yolov8m.pt")
+model = YOLO("yolov8m.pt")
 tracker = sv.ByteTrack()
 box_annotator = sv.BoundingBoxAnnotator()
+
+def filter_vehicle_detections(detections):
+    # Vehicle class IDs (2: 'car', 3: 'motorcycle', 5: 'bus', 7: 'truck')
+    selected_classes = [2, 3, 5, 7]
+    detections = detections[detections.confidence > 0.6]
+    vehicle_detections = detections[np.isin(detections.class_id, selected_classes)]
+    return vehicle_detections
 
 def callback(frame: np.ndarray, _: int) -> np.ndarray:
     results = model(frame)[0]
     detections = sv.Detections.from_ultralytics(results)
+    # Filter only vehicle detections
+    detections = filter_vehicle_detections(detections)
+    # Update tracker with vehicle detections
     detections = tracker.update_with_detections(detections)
+    # Annotate frame with vehicle detections only
     return box_annotator.annotate(frame.copy(), detections=detections)
 
 def process_video_with_progress(source_path: str, target_path: str, callback, progress_desc: str = "Processing"):
