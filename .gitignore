@@ -2,3 +2,4 @@
 /models/yolov8*.pt
 /video/source*.mp4
 Object-Recognition.v2i.yolov8
+result.mp4
