@@ -39,13 +39,13 @@ box_annotator = sv.BoundingBoxAnnotator()
 dot_annotator = sv.DotAnnotator(radius=0)
 
 # Define line zones for counting
-LINE_START_ONE = sv.Point(225, 325)
-LINE_END_ONE = sv.Point(0, 275)
+LINE_START_ONE = sv.Point(250, 225)
+LINE_END_ONE = sv.Point(0, 175)
 
 LINE_START_TWO = sv.Point(375, 225)
 LINE_END_TWO = sv.Point(270, 225)
 
-LINE_START_THREE = sv.Point(575, 280)
+LINE_START_THREE = sv.Point(600, 280)
 LINE_END_THREE = sv.Point(425, 230)
 
 # Create LineZone Instances
