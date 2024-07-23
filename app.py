@@ -65,22 +65,22 @@ def filter_vehicle_detections(detections):
 
 # Processes a single video frame to detect, track, and annotate vehicles.    
 def callback(frame: np.ndarray, _: int) -> np.ndarray:
-#     This function performs the following steps:
-#     1. Model prediction on the input frame to obtain detection results.
-#     2. Converts the detection results into a format suitable for further processing.
-#     3. Filters the detections to retain only vehicles.
-#     4. Updates the tracker with the filtered vehicle detections.
-#     5. Annotates the frame with bounding boxes around detected vehicles.
-#     6. Annotates the frame with dots for line crossing checks.
-#     7. Updates and triggers line counters based on vehicle detections.
-#     8. Annotates the frame with line counters information.
+    # This function performs the following steps:
+    # 1. Model prediction on the input frame to obtain detection results.
+    # 2. Converts the detection results into a format suitable for further processing.
+    # 3. Filters the detections to retain only vehicles.
+    # 4. Updates the tracker with the filtered vehicle detections.
+    # 5. Annotates the frame with bounding boxes around detected vehicles.
+    # 6. Annotates the frame with dots for line crossing checks.
+    # 7. Updates and triggers line counters based on vehicle detections.
+    # 8. Annotates the frame with line counters information.
 
-#     Args:
-#         frame (np.ndarray): The input video frame to be processed.
-#         _ (int): A placeholder for an unused parameter.
+    # Args:
+    #     frame (np.ndarray): The input video frame to be processed.
+    #     _ (int): A placeholder for an unused parameter.
 
-#     Returns:
-#         np.ndarray: The annotated video frame.
+    # Returns:
+    #     np.ndarray: The annotated video frame.
 
     # Model prediction on single frame and conversion to supervision Detections
     results = model(frame)[0]
