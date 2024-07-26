@@ -14,9 +14,7 @@ By leveraging state-of-the-art machine learning techniques and robust video proc
 Short Example: 
 [![Video Demo](./github/youtube.png)](https://www.youtube.com/watch?v=UT4w8ZaC9ZI "short video demo")
 
-Full Length Example [here.](https://www.youtube.com/watch?v=XKMLWrsiHVg "Full length example")
-
-As configured, with this example footage the project is highly accurate. Within the full 5 minute video, 341 objects are detected and counted. The tool's total accuracy is approximately 98.24% using YOLOv8x. 
+As configured, with this example footage the project is highly accurate. [Within the full 5 minute video](https://www.youtube.com/watch?v=XKMLWrsiHVg), 341 objects are detected and counted. The tool's total accuracy is approximately 98.24% using YOLOv8x. 
 
 There are the following errors:
 - Left lane:
