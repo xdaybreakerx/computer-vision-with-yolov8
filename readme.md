@@ -33,13 +33,29 @@ There are the following errors:
 
 Processing the video took 2:22:27 on the Apple M2 Pro 12 core / 32 gb RAM. 
 
+## Usage:
+As configured this program is set to use the pretrained YOLOv8 model, and only detect vehicles. 
+
+If you wish to change this you can do so by updating the class IDs within `app.py`.
+```py
+# Define vehicle class IDs (2: 'car', 3: 'motorcycle', 5: 'bus', 7: 'truck')
+selected_classes = [2, 3, 5, 7]
+```
+
+If you are unsure of the class IDs and their relevant class names for your YOLOv8 model you can use `model-names.py` to provide this to you.
+```
+python3 model-names.py
+```
+
+If you wish to create your own custom dataset for YOLOv8 please see [this blogpost by roboflow](https://blog.roboflow.com/how-to-train-yolov8-on-a-custom-dataset/).
+
 ## System/Hardware Requirements
 - No specific hardware requirements.
 - Operating System: Compatible with any OS that can run Python 3 (e.g., Windows, macOS, Linux).
 
 ## Prerequisites
 - Ensure you have Python 3 installed on your system.
-- Ensure ffmpeg is installed and available in your system’s PATH. You can download and install ffmpeg from [here.](https://www.ffmpeg.org/)
+- Ensure ffmpeg is installed and available in your system’s PATH. You can download and install ffmpeg from [here.](https://www.ffmpeg.org/) This is only required if using the provided `youtube-dl.py` script to provide a source video to analyse, however is not needed for the core functionality of this project.
 
 
 ## Dependencies
@@ -50,7 +66,7 @@ The application requires the following third party Python libraries:
 - `TQDM`: Utilized to display a progress bar, providing a visual indication of the video processing progress. You can find more information on this library [here.](https://github.com/tqdm/tqdm)
 - `OpenCV-python`: Used for reading and writing video files, and capturing and processing video frames. You can find more information on this library [here.](https://github.com/opencv/opencv-python)
 
-Additionally, if used the youtube-dl.app requires the following:
+Additionally, if used the `youtube-dl.py` requires the following:
 - `yt-dlp`: Used to download videos from YouTube with specified output formats and filenames. You can find more information on this library [here.](https://github.com/yt-dlp/yt-dlp)
 - `ffmpeg`: Utilized to trim the downloaded video to a specified length (30 seconds in this case). You can find more information on this library [here.](https://github.com/FFmpeg/FFmpeg)
 
@@ -146,23 +162,6 @@ Once the setup is complete, start the application by running:
     ```
     If you see a progress bar appear, you are successful. 
     
-
-
-## Usage:
-As configured this program is set to use the pretrained YOLOv8 model, and only detect vehicles. 
-
-If you wish to change this you can do so by updating the class IDs within `app.py`.
-```py
-# Define vehicle class IDs (2: 'car', 3: 'motorcycle', 5: 'bus', 7: 'truck')
-selected_classes = [2, 3, 5, 7]
-```
-
-If you are unsure of the class IDs and their relevant class names for your YOLOv8 model you can use `model-names.py` to provide this to you.
-```
-python3 model-names.py
-```
-
-If you wish to create your own custom dataset for YOLOv8 please see [this blogpost by roboflow](https://blog.roboflow.com/how-to-train-yolov8-on-a-custom-dataset/).
 
 ## License
 Distributed under the terms of the MIT License
